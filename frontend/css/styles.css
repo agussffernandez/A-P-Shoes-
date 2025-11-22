@@ -1,0 +1,98 @@
+/*=======================
+    VARIABLES COLORES
+=======================*/
+:root {
+    --color-principal: #000000;
+    --color-nav: #5e5b5b;
+    --letra-principal: "Stack Sans Text", sans-serif;
+}
+
+/*===========
+    General
+============*/
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--letra-principal);
+    color: var(--color-principal);
+}
+
+/*===========
+    Header
+===========*/
+
+nav img {
+    border-radius: 5px;
+}
+
+nav {
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    padding-bottom: 2px;
+}
+
+.menu-nav {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.pantalla {
+    list-style: none;
+    font-size: 20px;
+    padding: 0px 1px;
+    border-bottom: 1px solid;
+    transition: 0.3s;
+}
+
+
+
+.menu-nav a {
+    text-decoration: none;
+    color: var(--color-nav);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Transición más lenta */
+    transition: 
+        color 1s ease,
+        transform 1s ease,
+        font-size 1s ease;
+}
+
+.menu-nav a:hover {
+    color: var(--color-principal);
+}
+
+.pantalla:hover {
+    border-bottom-color: var(--color-principal);
+}
+
+.menu-nav a:hover {
+    color: var(--color-principal);
+    font-size: 22px;        /* agranda un poco la letra */
+    transform: scale(1.1);  /* zoom suave */
+}
+/*==========
+    Main
+==========*/
+
+.imagen-principal {
+    width: 100%;
+    border-radius: 4px;
+}
+
+
+/*============
+    Footer 
+============*/
+
+footer {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}
