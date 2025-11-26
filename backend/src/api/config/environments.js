@@ -1,3 +1,10 @@
+/*======================
+    ENVIRONMENTS.JS
+========================
+
+En este archivo se van a procesar y exportar la información de nuestras variables de entorno (definidas en .env)
+*/
+
 import dotenv from "dotenv";
 
 // El método config carga las variables de entorno desde nuestro archivo .env
