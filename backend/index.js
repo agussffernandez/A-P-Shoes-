@@ -43,7 +43,7 @@ app.use(express.json());
 ===================*/
 
 // Ahora las rutas las gestiona el middleware Router
-app.use("/api/products", productRoutes)
+app.use("/api/products", productRoutes);
 
 
 /*=========================

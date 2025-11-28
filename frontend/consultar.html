@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A&P Shoes</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/bamboo.css" type="text/css">
+    <title>Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script defer src="js/main.js"></script>
-
+    <script defer src="js/consultar.js" ></script>
 </head>
 <body>
-    
     <header>
-        <nav>            
-            <img src="img/logo.png" alt="logo-negro-A&P">
-            <ul class="menu-nav">
+        <nav>
+            <ul>
                 <a href="index.html">
                     <li>Ver</li>
                 </a>
@@ -35,18 +29,19 @@
                 </a>
             </ul>
         </nav>
-
     </header>
-
     <main>
-        <img class="imagen-principal" src="img/fondo-inicio-vans.png" alt="vans-best-price">
-        <h1>Lista de productos</h1>
+        <h1>Consultar producto por id</h1>
+        <form id="getProducts-form">
+            <label for="idProd">Id del producto</label>
+            <input type="number" name="id" id="idProd" required>
+            <input type="submit" value="Consultar producto" class="boton-submit">
+        </form>
         <hr>
-        <div id="contenedor-productos"></div>
+        <div id="contenedor-productos">
+            <ul id="listado-productos"></ul>
+        </div>
     </main>
 
-    <footer>
-        <span>A&P Shoes</span>
-    </footer>
 </body>
 </html>
