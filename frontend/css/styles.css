@@ -152,6 +152,27 @@ a li {
     font-size: 17px; /* agranda la letra */
 }
 
+/*=======================
+    Main (crear product)
+========================*/
+
+.products-form-amplio {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.products-form-amplio input,
+.formInput {
+    width: 250px;
+}
+
+.formInput {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 /*============
     Footer 
 ============*/
