@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A&P Shoes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/eliminar.js"></script>
+
+</head>
+
+<body>
+    
+    <header>
+        <nav>            
+            <img src="img/logo.png" alt="logo-negro-A&P">
+            <ul class="menu-nav">
+                <a href="index.html">
+                    <li>Ver</li>
+                </a>
+                <a href="consultar.html">
+                    <li>Consultar id</li>
+                </a>
+                <a href="crear.html">
+                    <li>Crear</li>
+                </a>
+                <a href="modificar.html">
+                    <li>Modificar</li>
+                </a>
+                <a href="eliminar.html">
+                    <li>Eliminar</li>
+                </a>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <hr>
+        <h1>Eliminar producto</h1>
+
+        <form id="getProducts-form" class="products-form">
+
+            <label for="idProd">Id del producto: </label>
+            <input type="number" name="id" id="idProd" required>
+
+            <input type="submit" value="Eliminar producto" class="boton-submit">
+        </form>
+
+        <hr>
+        <div id="contenedor-productos">
+            <ul id="listado-productos"></ul>
+        </div>
+    </main>
+
+    <footer>
+        <span>A&P Shoes</span>
+    </footer>
+</body></html>
