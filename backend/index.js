@@ -19,6 +19,9 @@ import { loggerUrl } from "./src/api/middlewares/middlewares.js";
 // Importamos las rutas de producto
 import { productRoutes } from "./src/api/routes/index.js";
 
+import { __dirname, join } from "./src/api/utils/index.js";
+import connection from "./src/api/database/db.js";
+
 
 /*===============
     Middlewares 
@@ -30,6 +33,9 @@ app.use(cors());
 // Middleware logger
 app.use(loggerUrl);
 
+// Middleware para servir archivos estaticos
+app.use(express.static(join(__dirname, "src/public")))
+
 // Middleware que convierte los datos "application/json" que nos proporciona la cabecera (header) de las solicitudes POST y PUT, los pasa de json a objetos JS
 // Express NO entiende JSON por defecto.
 // Cuando vos mandás un POST o PUT desde el frontend, los datos llegan como texto JSON.
@@ -39,12 +45,40 @@ app.use(express.json());
 
 
 /*===================
+    configuracion
+===================*/
+
+//configuracion EJS como motor de plantillas
+
+app.set("view engine", "ejs");
+
+//configuramos las vistas, para decirle al servidor que serviran desde src/views.
+
+app.set("views", join(__dirname, "src/views"));
+
+
+/*===================
     Endpoints
 ===================*/
 
 // Ahora las rutas las gestiona el middleware Router
 app.use("/api/products", productRoutes);
 
+app.get("/dashboard", async(req, res) => {
+    try{
+
+        const [ rows ] = await connection.query("SELECT * FROM productos");
+        console.log(rows);
+        res.render("index", {
+            title: "A&P Shoes",
+            productos: rows
+        })
+
+    } catch (error){
+        console.error(error);
+    }
+}
+)
 
 /*=========================
     Listener al servidor

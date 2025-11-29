@@ -1,0 +1,20 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/nav.ejs") %>
+    <main>
+        <img class="imagen-principal" src="img/fondo-inicio-vans.png" alt="vans-best-price">
+        <h1>Lista de productos</h1>
+        <hr>
+        <div id="contenedor-productos">
+            <!-- Vamos a iterar el array de productos que le pasamos desde el endopoint--> 
+            <% productos.forEach(prod => { %>
+                <div class="carta-producto">
+                    <img src="<%= prod.img_url %>" alt="<%= prod.nombre %>">
+                    <h5><%= prod.nombre %></h5>
+                    <p>Id: <%= prod.id  %></p>
+                    <p>$<%= prod.precio %></p>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+
+<%- include("partials/footer.ejs") %>
