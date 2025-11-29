@@ -17,7 +17,7 @@ import cors from "cors";
 import { loggerUrl } from "./src/api/middlewares/middlewares.js";
 
 // Importamos las rutas de producto
-import { productRoutes } from "./src/api/routes/index.js";
+import { productRoutes, viewsRoutes } from "./src/api/routes/index.js";
 
 import { __dirname, join } from "./src/api/utils/index.js";
 import connection from "./src/api/database/db.js";
@@ -34,9 +34,9 @@ app.use(cors());
 app.use(loggerUrl);
 
 // Middleware para servir archivos estaticos
-app.use(express.static(join(__dirname, "src/public")))
+app.use(express.static(join(__dirname, "src/public")));
 
-// Middleware que convierte los datos "application/json" que nos proporciona la cabecera (header) de las solicitudes POST y PUT, los pasa de json a objetos JS
+// Middleware que convierte los datos "application/json" que nos proporciona la cabecera (header) de las solicitudes POST y PUT, los pasa de json a objetos JSapp.use(express.static(join(__dirname, "src", "public"))); 
 // Express NO entiende JSON por defecto.
 // Cuando vos mandás un POST o PUT desde el frontend, los datos llegan como texto JSON.
 // Este middleware agarra ese JSON que viene como texto y lo convierte en un objeto JavaScript.
@@ -62,29 +62,9 @@ app.set("views", join(__dirname, "src/views"));
 // Ahora las rutas las gestiona el middleware Router
 app.use("/api/products", productRoutes);
 
-// index.ejs en /dashboard
-app.get("/dashboard", async(req, res) => {
-    try{
+// Rutas de vistas EJS
+app.use("/", viewsRoutes);
 
-        const [ rows ] = await connection.query("SELECT * FROM productos");
-        console.log(rows);
-        res.render("index", {
-            title: "A&P Shoes",
-            productos: rows
-        })
-
-    } catch (error){
-        console.error(error);
-    }
-}
-);
-
-// modificar.ejs en /modificar
-app.get("/modificar", (req, res) => {
-    res.render("modificar", {
-        title: "Modificar"
-    });
-})
 
 /*=========================
     Listener al servidor
