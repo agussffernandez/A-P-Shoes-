@@ -49,11 +49,9 @@ app.use(express.json());
 ===================*/
 
 //configuracion EJS como motor de plantillas
-
 app.set("view engine", "ejs");
 
 //configuramos las vistas, para decirle al servidor que serviran desde src/views.
-
 app.set("views", join(__dirname, "src/views"));
 
 
@@ -64,6 +62,7 @@ app.set("views", join(__dirname, "src/views"));
 // Ahora las rutas las gestiona el middleware Router
 app.use("/api/products", productRoutes);
 
+// index.ejs en /dashboard
 app.get("/dashboard", async(req, res) => {
     try{
 
@@ -78,7 +77,14 @@ app.get("/dashboard", async(req, res) => {
         console.error(error);
     }
 }
-)
+);
+
+// modificar.ejs en /modificar
+app.get("/modificar", (req, res) => {
+    res.render("modificar", {
+        title: "Modificar"
+    });
+})
 
 /*=========================
     Listener al servidor

@@ -1,0 +1,27 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/nav.ejs") %>
+
+    <main>
+        <h1>Actualizar producto</h1>
+
+        <form id="getProducts-form" class="products-form">
+
+            <label for="idProd">Id del producto</label>
+            <input type="number" name="id" id="idProd" required>
+
+            <input type="submit" value="Consultar producto" class="boton-submit">
+        </form>
+
+        <hr>
+        <div id="contenedor-productos">
+            <ul id="listado-productos"></ul>
+        </div>
+
+        <div id="contenedor-formulario">
+            <!-- Contenedor para volcarle el HTML del nuevo formulario modificar -->
+        </div>
+    </main>
+
+    <script src="js/modificar.js"></script>
+
+<%- include("partials/footer.ejs") %>

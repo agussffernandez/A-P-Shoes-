@@ -27,6 +27,17 @@ getProducts_form.addEventListener("submit", async (event) => {
         let response = await fetch(`http://localhost:3000/api/products/${idProducto}`);
         console.log(response);
 
+        // Si la respuesta no es ok (por ej. 404), mostramos el mensaje y cortamos
+        if (!response.ok) {
+            listado_productos.innerHTML = `
+                <li class="li-listados">
+                    <p><strong>Error:</strong> No existe un producto con el ID ${idProducto}</p>
+                </li>
+            `;
+            contenedor_formulario.innerHTML = ""; // Limpia formulario si había uno
+            return;
+        }
+
         // Proceso los datos que me devuelve el servidor
         let datos = await response.json();
         console.log(datos);
@@ -85,28 +96,37 @@ function crearFormularioPut(event, producto) {
 
         <input type="hidden" name="id" value="${producto.id}">
 
-        <label for="nameProd">Nombre</label>
-        <input type="text" name="nombre" id="nameProd" value="${producto.nombre}" required>
-        <br>
+        <div class="formInput">
+            <label for="nameProd">Nombre: </label>
+            <input type="text" name="nombre" id="nameProd" value="${producto.nombre}" required>
+            <br>
+        </div>
 
-        <label for="imageProd">Imagen</label>
-        <input type="text" name="img_url" id="imageProd" value="${producto.img_url}" required style="width: 800px;">
-        <br>
+        <div class="formInput">
+            <label for="imageProd">Imagen</label>
+            <input type="text" name="img_url" id="imageProd" value="${producto.img_url}" required>
+            <br>
+        </div>
 
-        <label for="categoryProd">Categoria</label>
-        <select name="categoria" id="categoryProd" required>
-            <option value="VANS">VANS</option>
-            <option value="ADIDAS">ADIDAS</option>
-        </select>
-        <br>
+        <div class="formInput">
+            <label for="categoryProd">Categoria</label>
+            <select name="categoria" id="categoryProd" required>
+                <option value="VANS">VANS</option>
+                <option value="ADIDAS">ADIDAS</option>
+            </select>
+            <br>
+        </div>
 
-        <label for="priceProd">Precio</label>
-        <input type="number" name="precio" id="priceProd" value="${producto.precio}" required>
-        <br>
+        <div class="formInput">
+            <label for="priceProd">Precio</label>
+            <input type="number" name="precio" id="priceProd" value="${producto.precio}" required>
+            <br>
+        </div>
+
 
         <input type="hidden" name="activo" value="${producto.activo}">
 
-        <input type="submit" value="Actualizar producto">
+        <input type="submit" value="Actualizar producto" class="boton-submit">
         
     </form>
     `;

@@ -160,11 +160,10 @@ a li {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-top: 40px;
 }
 
-.products-form-amplio input,
-.formInput {
+.products-form-amplio input {
     width: 250px;
 }
 
@@ -172,6 +171,41 @@ a li {
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+.formInput input{
+    width: 800px;
+}
+
+/*ESTILOS PARA EL LISTADO DE PRODUCTOS (de modify products)*/
+
+#listado-productos {
+    list-style: none;   
+    padding: 0;
+    margin: 0;
+}
+
+.li-listados {
+    background: #ffffff;
+    border-radius: 12px;      
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 300px;
+}
+
+.li-listados img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Botonera */
+.li-botonera {
+    list-style: none;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*============
