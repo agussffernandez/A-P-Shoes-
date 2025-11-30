@@ -3,50 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A&P Shoes</title>
+    <!-- Letra google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
-
+    <!--CSS y JS -->
     <link rel="stylesheet" href="css/styles.css">
     <script defer src="js/main.js"></script>
-
+    <title>A&P Shoes</title>
 </head>
 <body>
-    
     <header>
-        <nav>            
-            <img src="img/logo.png" alt="logo-negro-A&P">
-            <ul class="menu-nav">
-                <a href="index.html">
-                    <li>Ver</li>
-                </a>
-                <a href="consultar.html">
-                    <li>Consultar id</li>
-                </a>
-                <a href="crear.html">
-                    <li>Crear</li>
-                </a>
-                <a href="modificar.html">
-                    <li>Modificar</li>
-                </a>
-                <a href="eliminar.html">
-                    <li>Eliminar</li>
-                </a>
-            </ul>
+        <nav>
+            <span class="nombre-zapateria">A&P Shoes</span>
+            <div class="busqueda">
+                <label for="barraBusqueda"></label>
+                <input id="barraBusqueda" type="text" placeholder="Buscar">
+                <!--placeholder: muestra un texto dentro del input mientras está vacío. -->
+            </div>
+            <span id="carritoHeader">
+                carrito
+                <!--span donde se cargara (carrito: x productos) dinámicamente con JS -->
+            </span>
         </nav>
-
+        <hr>
     </header>
 
     <main>
-        <img class="imagen-principal" src="img/fondo-inicio-vans.png" alt="vans-best-price">
-        <h1>Lista de productos</h1>
-        <hr>
-        <div id="contenedor-productos"></div>
+        <section class="productos">
+            <div class="foto-principal">
+                <img src="img/fondo-inicio-vans.png" alt="fondo-inicio-vans">
+            </div>
+            <div class="encabezado-productos">
+                <h2>Lista de Productos</h2>
+                <div id="contenedorBotones">
+                    <!-- Acá JS agregará los dos botones -->
+                </div>
+            </div>
+
+            <div id="contenedorProductos">
+            <!-- Los productos serán cargadas dinámicamente con JS -->
+            </div>
+        </section>
+
+        <section class="carrito">
+            <h2>Carrito</h2>
+            <div id="contenedorCarrito">
+                <!--Carrito cargado dinámicamente con JS-->
+            </div>
+        </section>
     </main>
 
     <footer>
-        <span>A&P Shoes</span>
+        <div class="contenedorFooter">
+            <!--Footer dinámicamente con JS (total y vaciar todos los porductos)-->
+        </div>
     </footer>
 </body>
 </html>
