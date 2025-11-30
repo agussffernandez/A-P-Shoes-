@@ -107,10 +107,18 @@ function ordenarPorPrecio() {
 }
 
 
+/*============================================
+    5TO PASO: Implementar la funcionalidad carrito
+==============================================
+Crea 1 boton de ordenar por precio (ordena de menor a mayor)
+*/
+
+
+
 async function init() {
+    agregarBoton();  // ← agrega el botón al cargar
     productos = await obtenerProductos(); // Esperamos la respuesta
     mostrarProductos(productos);                // Ahora sí mostramos
-    agregarBoton();  // ← agrega el botón al cargar
 }
 
 init();

@@ -25,6 +25,17 @@ nav {
     padding: 10px 8px;
 }
 
+nav a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    transform: scale(1.08);
+}
+
 /* --- BARRA DE BÚSQUEDA --- */
 
 .busqueda input {
@@ -165,4 +176,61 @@ nav {
     background-color: #000;
     color: #fff;
     transform: scale(1.02);
+}
+
+/*=========================
+    STYLES CARRITO.HTML
+=========================*/
+
+/*---------------
+    Header/nav
+---------------*/
+
+nav h3 {
+    margin: 0px;
+}
+
+/*---------------
+    Main
+---------------*/
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-volver {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.btn-volver:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+.contenedor-volver {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+/*carrito*/
+
+.carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#contenedorCarrito {
+    background-color: #f7f7f7;   /* gris muy claro */
+    border: 2px solid #e0e0e0;   /* borde gris suave */
+    border-radius: 10px;         /* bordes redondeados (opcional) */
+    padding: 20px;               /* espacio interno */
 }
