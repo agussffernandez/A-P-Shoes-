@@ -17,7 +17,7 @@ import connection from "../database/db.js";
 //traer todos los productos
 const selectAllProducts = () => {
     const sql = `
-    SELECT id, nombre, categoria, precio, img_url
+    SELECT *
     FROM productos`;
     
     return connection.query(sql);
@@ -27,7 +27,7 @@ const selectAllProducts = () => {
 const selectProductById = (id) => {
 
     const sql = `
-    SELECT id, nombre, categoria, precio, img_url
+    SELECT id, nombre, categoria, precio, img_url, activo
     FROM productos
     WHERE id = ?
     LIMIT 1`;
@@ -46,20 +46,18 @@ const insertProduct = (nombre, categoria, precio, img_url) => {
 }
 
 //modificar producto
-
-const updateProduct = (nombre, categoria, precio, img_url, id) => {
+const updateProduct = (nombre, categoria, precio, img_url, activo, id) => {
     
     const sql = `
     UPDATE productos
-    SET nombre = ?, categoria = ?, precio = ?, img_url = ?
+    SET nombre = ?, categoria = ?, precio = ?, img_url = ?, activo = ?
     WHERE id = ?`;
 
-    return connection.query(sql, [nombre, categoria, precio, img_url, id]);
+    return connection.query(sql, [nombre, categoria, precio, img_url, activo, id]);
 
 }
 
 //eliminar producto 
-
 const deleteProduct = (id) => {
 
     const sql = `DELETE FROM productos WHERE id = ?`;
