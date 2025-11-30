@@ -86,6 +86,20 @@ app.get("/modificar", (req, res) => {
     });
 })
 
+// consultar.ejs en /consultar
+app.get("/consultar", (req, res) => {
+    res.render("consultar", {
+        title: "consultar producto"
+    });
+});
+
+// crear.ejs en /crear
+app.get("/crear", (req, res) => {
+    res.render("crear", {
+        title: "crear producto"
+    });
+});
+
 /*=========================
     Listener al servidor
 ==========================*/
