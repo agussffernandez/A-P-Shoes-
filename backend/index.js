@@ -65,6 +65,21 @@ app.use("/api/products", productRoutes);
 // Rutas de vistas EJS
 app.use("/", viewsRoutes);
 
+// consultar.ejs en /consultar
+app.get("/consultar", (req, res) => {
+    res.render("consultar", {
+        title: "consultar producto"
+    });
+});
+
+// crear.ejs en /crear
+app.get("/crear", (req, res) => {
+    res.render("crear", {
+        title: "crear producto"
+    });
+});
+
+
 
 /*=========================
     Listener al servidor

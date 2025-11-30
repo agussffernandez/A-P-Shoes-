@@ -1,0 +1,36 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/nav.ejs") %>
+
+<main>
+    <h1>Crear Nuevo Producto </h1>
+
+    <form id="altaProducts-form" class="products-form-amplio">
+        <label for="nameProd">Nombre</label>
+        <input type="text" name="nombre" id="nameProd" required>
+        <br>
+
+        <label for="imageProd">Imagen</label>
+        <input type="text" name="img_url" id="imageProd" required>
+        <br>
+
+        <label for="categoryProd">Categoria</label>
+        <select name="categoria" id="categoryProd" required>
+            <option value="VANS">VANS</option>
+            <option value="ADIDAS">ADIDAS</option>
+        </select>
+        <br>
+
+        <label for="priceProd">Precio</label>
+        <input type="number" name="precio" id="priceProd" required>
+        <br>
+
+        <input type="submit" value="crear producto">
+    </form>
+
+    <hr>
+    <div id="contenedor-productos"></div>
+</main>
+
+<script src="/js/crear.js"></script>
+
+<%- include("partials/footer.ejs") %>
