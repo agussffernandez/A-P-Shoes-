@@ -76,16 +76,41 @@ barraBusqueda.addEventListener("keyup", filtrarProductos);
 
 
 /*============================================
-    4TO PASO: 
+    4TO PASO: Boton ordenar por precio
 ==============================================
+Crea 1 boton de ordenar por precio (ordena de menor a mayor)
 */
 
+let contenedorBoton = document.querySelector("#contenedorBoton");
 
+function agregarBoton() {
+    // Creamos el texto plano html de los botones
+    // Creamos el HTML de los botones
+    let htmlBoton = 
+    `
+        <button onclick="ordenarPorPrecio()" id="ordenPrecio">Ordenar por precio</button>
+    `;
+
+    // Insertamos los botones en el contenedor
+    contenedorBoton.innerHTML = htmlBoton;
+}
+
+function ordenarPorPrecio() {
+    // Creamos una copia ordenada
+    const ordenados = [...productos].sort((a, b) => a.precio - b.precio);
+
+    console.log(ordenados);
+    
+
+    // Los mostramos en pantalla
+    mostrarProductos(ordenados);
+}
 
 
 async function init() {
     productos = await obtenerProductos(); // Esperamos la respuesta
     mostrarProductos(productos);                // Ahora sí mostramos
+    agregarBoton();  // ← agrega el botón al cargar
 }
 
 init();

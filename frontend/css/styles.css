@@ -72,6 +72,22 @@ nav {
     align-items: center;
 }
 
+/* boton */
+#ordenPrecio {
+    padding: 10px 18px;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+    transition: 0.25s ease;
+}
+
+#ordenPrecio:hover {
+    background: rgba(0,0,0,0.15);
+    transform: scale(1.07);
+}
+
 /* --- CONTENEDOR PRODUCTOS --- */
 
 #contenedorProductos {
