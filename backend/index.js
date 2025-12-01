@@ -14,13 +14,21 @@ const PORT = environments.port;
 import cors from "cors";
 
 // Importamos los middlewares propios
-import { loggerUrl } from "./src/api/middlewares/middlewares.js";
+import { loggerUrl, requireLogin } from "./src/api/middlewares/middlewares.js";
+
 
 // Importamos las rutas de producto
-import { productRoutes, viewsRoutes } from "./src/api/routes/index.js";
+import { productRoutes, viewsRoutes, loginRoutes } from "./src/api/routes/index.js";
 
 import { __dirname, join } from "./src/api/utils/index.js";
 import connection from "./src/api/database/db.js";
+
+// importamos express-session
+import session from "express-session";
+
+// importamos la clave de sesion desde environments
+const SESSION_KEY = environments.sessionKey;
+
 
 
 /*===============
@@ -33,6 +41,11 @@ app.use(cors());
 // Middleware logger
 app.use(loggerUrl);
 
+// middleware para parsear la info de forms/(login.ejs)
+// gracias al mismo podemos leer la info que nos mandan los forms de html, que no son fetch ni json.
+
+app.use(express.urlencoded({ extended: true }));
+
 // Middleware para servir archivos estaticos
 app.use(express.static(join(__dirname, "src/public")));
 
@@ -41,6 +54,15 @@ app.use(express.static(join(__dirname, "src/public")));
 // Cuando vos mandás un POST o PUT desde el frontend, los datos llegan como texto JSON.
 // Este middleware agarra ese JSON que viene como texto y lo convierte en un objeto JavaScript.
 app.use(express.json());
+
+// middleware de sesion
+app.use(session({
+    secret: SESSION_KEY, //Firma las cookies para evitar manipulacion
+    resave: false, //Evita guardar la session si no huno cambios
+    saveUninitialized: false // No guarda sesiones vacías
+}));
+
+
 
 
 
@@ -62,8 +84,12 @@ app.set("views", join(__dirname, "src/views"));
 // Ahora las rutas las gestiona el middleware Router
 app.use("/api/products", productRoutes);
 
+
+// Rutas de usuario (login)
+app.use("/", loginRoutes);
+
 // Rutas de vistas EJS
-app.use("/", viewsRoutes);
+app.use("/", requireLogin, viewsRoutes);
 
 
 /*=========================

@@ -46,7 +46,16 @@ const validateId = (req, res, next) => {
     next(); // Continuar al siguiente middleware (si lo hay) o con la respuesta
 }
 
+// middlewares para proteger las rutas
+const requireLogin = (req, res, next) => {
+    if (!req.session || !req.session.user) {
+        return res.redirect("/login");
+    } 
+    next();
+}
+
 export {
     loggerUrl,
     validateId,
+    requireLogin
 }
