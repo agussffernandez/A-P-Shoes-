@@ -34,4 +34,20 @@ router.get("/eliminar", (req, res) => {
     res.render("eliminar", { title: "Eliminar" });
 });
 
+
+// consultar.ejs en /consultar
+router.get("/consultar", (req, res) => {
+    res.render("consultar", {
+        title: "consultar producto"
+    });
+});
+
+// crear.ejs en /crear
+router.get("/crear", (req, res) => {
+    res.render("crear", {
+        title: "crear producto"
+    });
+});
+
+
 export default router;

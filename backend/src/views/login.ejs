@@ -1,0 +1,46 @@
+<%- include("partials/head.ejs") %>
+
+<section class = "login-section"> 
+    <h1> <%= about %> </h1>
+
+<% if (typeof error !== "undefined") { %>
+    <div class="error-message">
+        <%= error %>
+    </div>
+<% } %>
+
+<!-- Ahora los datos no los enviamos con fetch, sino con <form> -> Necesitamos parsear estos datos (no json) en nuestra aplicacion-->
+<form id="login-form" action="/login" method="POST" autocomplete="off">
+
+    <label for="emailUser">Email</label>
+    <input type="email" name="email" id="emailUser" required>
+
+    <label for="passwordUser">Password</label>
+    <input type="password" name="password" id="passwordUser" required>
+
+    <input type="submit" class="btn-login" value="Login">
+    <input type="button" id="acceso" class="btn-login" value="Acceso rápido">
+</form>
+</section>
+
+<!-- Enviando unha peticion POST con <form>
+Express no sabe cómo leer el cuerpo de la petición POST si no tienes un middleware de parsing.
+
+En el caso de un formulario HTML clásico (method="POST"), el navegador envía los datos como application/x-www-form-urlencoded por defecto.
+
+Si no tienes el parser de urlencoded, req.body será undefined.
+Envía datos como application/x-www-form-urlencoded → necesita express.urlencoded.-->
+
+<script>
+    let emailUser = document.getElementById("emailUser");
+    let passwordUser = document.getElementById("passwordUser");
+
+    let acceso_rapido = document.getElementById("acceso");
+    acceso_rapido.addEventListener("click", () => {
+        emailUser.value = "test@test.com";
+        passwordUser.value = "test";
+    });
+</script>
+
+</body>
+</html>
