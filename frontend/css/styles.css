@@ -23,6 +23,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 10px 8px;
+    font-size: 18px;
 }
 
 nav a {
@@ -233,4 +234,24 @@ main {
     border: 2px solid #e0e0e0;   /* borde gris suave */
     border-radius: 10px;         /* bordes redondeados (opcional) */
     padding: 20px;               /* espacio interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-eliminar {
+    padding: 6px 12px;
+    background: transparent;
+    border: 2px solid #d9534f;
+    color: #d9534f;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.boton-eliminar:hover {
+    background-color: #d9534f;
+    color: white;
+    transform: scale(1.05);
 }
