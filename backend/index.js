@@ -21,6 +21,7 @@ import { loggerUrl, requireLogin } from "./src/api/middlewares/middlewares.js";
 import { productRoutes, viewsRoutes, loginRoutes } from "./src/api/routes/index.js";
 
 import { __dirname, join } from "./src/api/utils/index.js";
+
 import connection from "./src/api/database/db.js";
 
 // importamos express-session

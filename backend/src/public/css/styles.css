@@ -373,94 +373,114 @@ footer {
 }
 
 
-
-
-/* ===========================
-      RESPONSIVE SOLO CELULAR
-                600px
-=========================== */
-@media (max-width: 600px) {
+/* ==============================
+   RESPONSIVE – TABLET (≤1024px)
+   ============================== */
+@media (max-width: 1024px) {
 
     /* NAV */
-    nav {
-        flex-direction: column;
-        height: auto;
-        gap: 10px;
-        padding: 10px 0;
-    }
-
     .menu-nav {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 25px;
     }
 
-    a li {
-        font-size: 16px;
+    .menu-nav a li {
+        font-size: 18px;
     }
 
-    .menu-nav a:hover {
-        font-size: 17px;
-        transform: scale(1.05);
-    }
-
-    /* PRODUCTOS */
+    /* Productos */
     #contenedor-productos {
         justify-content: center;
     }
 
     .carta-producto {
-        width: 95%;
+        width: 240px;
+        height: 260px;
+    }
+
+    /* Formularios */
+    #getProducts-form {
+        width: 40%;
+    }
+
+    .formInput input{
+        width: 500px;
+    }
+}
+
+
+/* ==========================
+   RESPONSIVE – CELULAR (≤600px)
+   ========================== */
+@media (max-width: 600px) {
+
+    /* NAV */
+    nav {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-nav {
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+    }
+
+    .menu-nav a li {
+        font-size: 18px;
+        border-bottom: 1px solid #aaa;
+    }
+
+    /* El botón de cerrar sesión SIEMPRE rojo */
+    #logout input {
+        background: #d40000 !important;
+        color: #fff !important;
+        border-color: #d40000 !important;
+    }
+
+    #logout input:hover {
+        background: #b30000 !important;
+        transform: scale(1.1);
+    }
+
+    /* Imagen principal */
+    .imagen-principal {
+        border-radius: 6px;
+    }
+
+    /* Productos */
+    #contenedor-productos {
+        justify-content: center;
+    }
+
+    .carta-producto {
+        width: 90%;
         height: auto;
     }
 
-    /* FORM CONSULTAR */
+    /* Formularios */
     #getProducts-form {
-        width: 100%;
-    }
-
-    /* FORM CREAR PRODUCTO */
-    .products-form-amplio {
-        width: 100%;
-        align-items: center;
+        width: 80%;
     }
 
     .products-form-amplio input,
     .formInput input {
-        width: 90% !important;
-    }
-
-    .formInput {
-        flex-direction: column;
-        align-items: flex-start;
         width: 100%;
     }
 
-    /* LISTADO PRODUCTOS */
-    .li-listados {
-        width: 90%;
-    }
-
-    /* LOGIN */
+    /* Login */
     #login-form {
-        width: 85%;
+        width: 90%;
+        padding: 20px;
     }
 
-    /* FOOTER */
+    #login-form input {
+        font-size: 14px;
+    }
+
+    /* Footer */
     footer {
-        font-size: 28px;
-        text-align: center;
-        padding: 20px 0;
+        font-size: 30px;
     }
 }
-#logout input {
-    background: #d40000 !important;
-    color: #fff !important;
-    border-color: #d40000 !important;
-}
-#logout input:hover {
-    background: #a30000 !important; 
-    border-color: #a30000 !important;
-}
-
-
