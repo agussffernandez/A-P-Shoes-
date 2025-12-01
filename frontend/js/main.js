@@ -70,22 +70,181 @@ function filtrarProductos(event) {
     mostrarProductos(filtrados);
 }
 
-barraBusqueda.addEventListener("keyup", filtrarProductos);
-
+// Solo agregar el evento si el input existe (es decir, solo en index.html, no en carrito.html)
+if (barraBusqueda) {
+    barraBusqueda.addEventListener("keyup", filtrarProductos);
+}
 
 
 
 /*============================================
-    4TO PASO: 
+    4TO PASO: Boton ordenar por precio
 ==============================================
+Crea 1 boton de ordenar por precio (ordena de menor a mayor)
 */
 
+let contenedorBoton = document.querySelector("#contenedorBoton");
 
+function agregarBoton() {
+    // Creamos el texto plano html de los botones
+    // Creamos el HTML de los botones
+    let htmlBoton = 
+    `
+        <button onclick="ordenarPorPrecio()" id="ordenPrecio">Ordenar por precio</button>
+    `;
+
+    // Insertamos los botones en el contenedor
+    contenedorBoton.innerHTML = htmlBoton;
+}
+
+function ordenarPorPrecio() {
+    // Creamos una copia ordenada
+    const ordenados = [...productos].sort((a, b) => a.precio - b.precio);
+
+    console.log(ordenados);
+    
+
+    // Los mostramos en pantalla
+    mostrarProductos(ordenados);
+}
+
+
+/*================================================0
+    5TO PASO: Implementar la funcionalidad carrito
+===================================================
+Crea 1 boton de ordenar por precio (ordena de menor a mayor)
+*/
+let contenedorCarrito = document.querySelector("#contenedorCarrito");
+let carritoHeader = document.querySelector("#carritoHeader");
+
+let carrito = [];
+
+
+// Guardar carrito
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// Cargar carrito (si existe)
+function cargarCarrito() {
+    const guardado = localStorage.getItem("carrito");
+    carrito = guardado ? JSON.parse(guardado) : [];
+}
+
+
+// ---------------------------------
+//       AGREGAR AL CARRITO
+// ---------------------------------
+
+function agregarACarrito(idProducto) {
+
+    // Buscar el producto en el array global `productos`
+    const productoSeleccionado = productos.find(p => p.id === idProducto);
+    if (!productoSeleccionado) return;
+
+    // Agregar al carrito
+    carrito.push(productoSeleccionado);
+
+    // Guardar cambios en localStorage
+    guardarCarrito();
+
+    // Actualizar UI
+    mostrarCarrito();
+    actualizarCantidadHeader();
+}
+
+
+// ---------------------------------
+//       MOSTRAR CARRITO
+// ---------------------------------
+
+function mostrarCarrito() {
+
+    if (!contenedorCarrito) return;
+
+    if (carrito.length === 0) {
+        contenedorCarrito.innerHTML = `<p>Tu carrito está vacío</p>`;
+        return;
+    }
+
+    let html = "<ul>";
+
+    carrito.forEach(item => {
+        html += `
+        <li class="bloque-item">
+            <p class="nombre-item">
+                ${item.nombre} - $${item.precio}
+            </p>
+
+            <button onclick="eliminarProducto(${item.id})" class="boton-eliminar">
+                Eliminar
+            </button>
+        </li>`;
+    });
+
+    html += "</ul>";
+
+    html += `
+        <div class="total-carrito">
+            <span>Total: $${calcularTotal()}</span>
+        </div>
+    `;
+
+    contenedorCarrito.innerHTML = html;
+}
+
+function calcularTotal() {
+    return carrito.reduce((acc, item) => acc + item.precio, 0);
+}
+
+// ---------------------------------
+//       ELIMINAR PRODUCTO
+// ---------------------------------
+
+function eliminarProducto(idProducto) {
+
+    // Filtra y elimina el producto del array carrito
+    carrito = carrito.filter(item => item.id !== idProducto);
+
+    // Guarda el carrito actualizado en localStorage
+    guardarCarrito();
+
+    // Vuelve a mostrar el carrito en pantalla
+    mostrarCarrito();
+
+    // Actualiza la cantidad que figura en el header
+    actualizarCantidadHeader();
+}
+
+
+// ---------------------------------
+//       ACTUALIZAR CANTIDAD HEADER
+// ---------------------------------
+
+function actualizarCantidadHeader() {
+    if (carritoHeader) {
+        carritoHeader.textContent = `Carrito (${carrito.length})`;
+    }
+}
 
 
 async function init() {
-    productos = await obtenerProductos(); // Esperamos la respuesta
-    mostrarProductos(productos);                // Ahora sí mostramos
+
+    cargarCarrito();
+    actualizarCantidadHeader();
+
+    productos = await obtenerProductos();
+
+    // SOLO si estoy en index.html
+    if (contenedorProductos) {
+        agregarBoton();
+        mostrarProductos(productos);
+    }
+
+    // SOLO si estoy en carrito.html
+    if (contenedorCarrito) {
+        mostrarCarrito();
+    }
 }
 
 init();

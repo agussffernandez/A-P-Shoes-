@@ -16,11 +16,7 @@
     <header>
         <nav>
             <span class="nombre-zapateria">A&P Shoes</span>
-            <div class="busqueda">
-                <label for="barraBusqueda"></label>
-                <input id="barraBusqueda" type="text" placeholder="Buscar">
-                <!--placeholder: muestra un texto dentro del input mientras está vacío. -->
-            </div>
+            <h3>Productos En Carrito</h3>
             <a href="carrito.html" id="carritoHeader">Carrito</a>
             <!--href donde se cargara (carrito: x productos) dinámicamente con JS -->
         </nav>
@@ -28,22 +24,13 @@
     </header>
 
     <main>
-        <section class="productos">
-            <div class="foto-principal">
-                <img src="img/fondo-inicio-vans.png" alt="fondo-inicio-vans">
-            </div>
-            <div class="encabezado-productos">
-
-                <h2>Lista de Productos</h2>
-
-                <div id="contenedorBoton">
-                    <!-- Acá JS agregará los dos botones -->
-                </div>
-
-            </div>
-
-            <div id="contenedorProductos">
-            <!-- Los productos serán cargadas dinámicamente con JS -->
+        <div  class="contenedor-volver">
+            <a href="index.html" class="btn-volver"> < Volver</a>
+        </div>
+        <section class="carrito">
+            <h2>Carrito</h2>
+            <div id="contenedorCarrito">
+                <!--Carrito cargado dinámicamente con JS-->
             </div>
         </section>
     </main>

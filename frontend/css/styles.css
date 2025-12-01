@@ -23,6 +23,18 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 10px 8px;
+    font-size: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    transform: scale(1.08);
 }
 
 /* --- BARRA DE BÚSQUEDA --- */
@@ -70,6 +82,22 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* boton */
+#ordenPrecio {
+    padding: 10px 18px;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+    transition: 0.25s ease;
+}
+
+#ordenPrecio:hover {
+    background: rgba(0,0,0,0.15);
+    transform: scale(1.07);
 }
 
 /* --- CONTENEDOR PRODUCTOS --- */
@@ -149,4 +177,81 @@ nav {
     background-color: #000;
     color: #fff;
     transform: scale(1.02);
+}
+
+/*=========================
+    STYLES CARRITO.HTML
+=========================*/
+
+/*---------------
+    Header/nav
+---------------*/
+
+nav h3 {
+    margin: 0px;
+}
+
+/*---------------
+    Main
+---------------*/
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-volver {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.btn-volver:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+.contenedor-volver {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+/*carrito*/
+
+.carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#contenedorCarrito {
+    background-color: #f7f7f7;   /* gris muy claro */
+    border: 2px solid #e0e0e0;   /* borde gris suave */
+    border-radius: 10px;         /* bordes redondeados (opcional) */
+    padding: 20px;               /* espacio interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-eliminar {
+    padding: 6px 12px;
+    background: transparent;
+    border: 2px solid #d9534f;
+    color: #d9534f;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.boton-eliminar:hover {
+    background-color: #d9534f;
+    color: white;
+    transform: scale(1.05);
 }
