@@ -371,3 +371,96 @@ footer {
     border: 1px solid #ffbcbc;
     margin-bottom: 10px;
 }
+
+
+
+
+/* ===========================
+      RESPONSIVE SOLO CELULAR
+   Se activa únicamente hasta 600px
+=========================== */
+@media (max-width: 600px) {
+
+    /* NAV */
+    nav {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .menu-nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    a li {
+        font-size: 16px;
+    }
+
+    .menu-nav a:hover {
+        font-size: 17px;
+        transform: scale(1.05);
+    }
+
+    /* PRODUCTOS */
+    #contenedor-productos {
+        justify-content: center;
+    }
+
+    .carta-producto {
+        width: 95%;
+        height: auto;
+    }
+
+    /* FORM CONSULTAR */
+    #getProducts-form {
+        width: 100%;
+    }
+
+    /* FORM CREAR PRODUCTO */
+    .products-form-amplio {
+        width: 100%;
+        align-items: center;
+    }
+
+    .products-form-amplio input,
+    .formInput input {
+        width: 90% !important;
+    }
+
+    .formInput {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    /* LISTADO PRODUCTOS */
+    .li-listados {
+        width: 90%;
+    }
+
+    /* LOGIN */
+    #login-form {
+        width: 85%;
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 28px;
+        text-align: center;
+        padding: 20px 0;
+    }
+}
+#logout input {
+    background: #d40000 !important;
+    color: #fff !important;
+    border-color: #d40000 !important;
+}
+#logout input:hover {
+    background: #a30000 !important; 
+    border-color: #a30000 !important;
+}
+
+
