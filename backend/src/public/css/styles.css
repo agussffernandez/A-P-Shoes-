@@ -71,8 +71,8 @@ a li {
 
 .menu-nav a:hover {
     color: var(--color-principal);
-    font-size: 22px;        /* agranda un poco la letra */
-    transform: scale(1.1);  /* zoom suave */
+    font-size: 22px;        
+    transform: scale(1.1);  
 }
 
 
@@ -98,18 +98,15 @@ a li {
     flex-direction: column;
     justify-content: center;
     gap: 4px;
-     /* Fondo con degradado suave */
     background: linear-gradient(135deg, #ffffff, #f3f3f3);
     border-radius: 12px;
-    /* Sombra suave */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    /* Suavidad en hover */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .carta-producto:hover {
-    transform: scale(1.05); /* se agranda un 5% */
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* sombra más fuerte */
+    transform: scale(1.05); 
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25); 
     cursor: pointer;
 }
 
@@ -148,8 +145,8 @@ a li {
 .boton-submit:hover {
     background-color: #000;
     color: #fff;
-    transform: scale(1.05); /* agranda el botón */
-    font-size: 17px; /* agranda la letra */
+    transform: scale(1.05); 
+    font-size: 17px;
 }
 
 /*=======================

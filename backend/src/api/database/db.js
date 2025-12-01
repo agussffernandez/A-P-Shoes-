@@ -12,7 +12,6 @@ import mysql from "mysql2/promise";
 // Importamos la info que esta en environments 
 import environments from "../config/environments.js";
 
-// Environments trae 2 claves: "port" y "database", solo nos interesa database asi que hacemos destructuring { database }
 // database contiene las claves: host, name, user y password 
 const { database } = environments;
 

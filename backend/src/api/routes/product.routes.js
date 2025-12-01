@@ -2,7 +2,7 @@
     ROUTER
 ===============
 
-El router (se pronuncia “ráuter”) es una mini-aplicación de Express que sirve para organizar tus rutas en archivos separados en vez de tener todo dentro del server.js o app.js.
+El router es una mini-aplicación de Express que sirve para organizar tus rutas en archivos separados en vez de tener todo dentro del server.js o app.js.
 
 Un router es como un sub-servidor donde definís tus endpoints.
 

@@ -50,9 +50,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(join(__dirname, "src/public")));
 
 // Middleware que convierte los datos "application/json" que nos proporciona la cabecera (header) de las solicitudes POST y PUT, los pasa de json a objetos JSapp.use(express.static(join(__dirname, "src", "public"))); 
-// Express NO entiende JSON por defecto.
-// Cuando vos mandás un POST o PUT desde el frontend, los datos llegan como texto JSON.
-// Este middleware agarra ese JSON que viene como texto y lo convierte en un objeto JavaScript.
+
 app.use(express.json());
 
 // middleware de sesion

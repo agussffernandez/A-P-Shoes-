@@ -29,7 +29,6 @@ const validateId = (req, res, next) => {
     const { id } = req.params;
 
     // Validar que el ID sea un numero (de lo contrario la consulta podria generar un error en la BBDD)
-    // !id significa “si id es falso / vacío / undefined”.
     // isNaN() chequea si el valor NO  puede convertirse a un número.
     if(!id || isNaN(id)) {
         // El return corta la ejecución del middleware.
